@@ -1,0 +1,88 @@
+/* Reset and Center */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle, #141e30, #0d0d0d);
+    color: white;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    margin: 0;
+}
+
+/* Circular Clock Container */
+.clock-container {
+    width: 300px;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 20px cyan, 0 0 40px blue, 0 0 60px magenta, 0 0 80px purple;
+    animation: neonGlow 3s infinite alternate;
+}
+
+/* Outer Glowing Multi-Color Ring */
+.clock-container::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 6px solid transparent;
+    box-shadow: 0 0 30px cyan, 0 0 50px blue, 0 0 70px magenta, 0 0 90px purple;
+    animation: pulseGlow 2s infinite alternate;
+}
+
+/* Time Styling - Smooth Glowing Effect */
+#time {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: cyan;
+    text-shadow: 0 0 10px cyan, 0 0 20px blue, 0 0 30px magenta;
+    letter-spacing: 3px;
+    animation: textGlow 1s infinite alternate;
+}
+
+/* Date Styling */
+#date {
+    font-size: 1rem;
+    color: #66ffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.6);
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Keyframes for Neon Glow */
+@keyframes neonGlow {
+    0% {
+        box-shadow: 0 0 20px cyan, 0 0 40px blue, 0 0 60px magenta, 0 0 80px purple;
+    }
+    100% {
+        box-shadow: 0 0 30px blue, 0 0 50px magenta, 0 0 70px purple, 0 0 90px cyan;
+    }
+}
+
+/* Keyframes for Pulsing Outer Glow */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 30px cyan, 0 0 50px blue, 0 0 70px magenta, 0 0 90px purple;
+    }
+    100% {
+        box-shadow: 0 0 40px blue, 0 0 60px magenta, 0 0 80px purple, 0 0 100px cyan;
+    }
+}
+
+/* Keyframes for Blinking Text Glow */
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 10px cyan, 0 0 20px blue, 0 0 30px magenta;
+    }
+    100% {
+        text-shadow: 0 0 15px blue, 0 0 25px magenta, 0 0 35px purple;
+    }
+}
